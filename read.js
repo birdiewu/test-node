@@ -14,6 +14,8 @@
 
 var fs = require('fs');
 
+var colors = require('colors');
+
 let todos = JSON.parse(fs.readFileSync("todos.json"));
 
 let todolist = '您的待辦事項：';
@@ -21,4 +23,4 @@ let todolist = '您的待辦事項：';
 for (let [index, todo] of todos.entries()) {
     todolist = todolist + `\n#${index} ${todo.title}`;
 }
-console.log(todolist);
+console.log(colors.blue.underline(todolist));
