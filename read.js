@@ -12,15 +12,37 @@
 //     process.exit(0);
 // });
 
-var fs = require('fs');
+// var fs = require('fs');
 
-var colors = require('colors');
+// var colors = require('colors');
 
-let todos = JSON.parse(fs.readFileSync("todos.json"));
+// let todos = JSON.parse(fs.readFileSync("todos.json"));
 
-let todolist = '您的待辦事項：';
+// let todolist = '您的待辦事項：';
 
-for (let [index, todo] of todos.entries()) {
-    todolist = todolist + `\n#${index} ${todo.title}`;
-}
-console.log(colors.blue.underline(todolist));
+// for (let [index, todo] of todos.entries()) {
+//     todolist = todolist + `\n#${index} ${todo.title}`;
+// }
+// console.log(colors.blue.underline(todolist));
+
+
+function readTodo() {
+
+    var fs = require('fs');
+
+    var colors = require('colors');
+
+    let todos = JSON.parse(fs.readFileSync("todos.json"));
+
+    let todolist = '您的待辦事項：';
+
+    for (let [index, todo] of todos.entries()) {
+        todolist = todolist + `\n#${index} ${todo.title}`;
+    }
+    console.log(colors.blue.underline(todolist));
+    // process.exit(0);
+};
+
+module.exports = {
+    readTodo: readTodo
+};
